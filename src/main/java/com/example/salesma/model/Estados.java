@@ -1,5 +1,5 @@
 package com.example.salesma.model;
 
-public class Venta {
-    
+public enum Estados {
+    Debe, Pago
 }
