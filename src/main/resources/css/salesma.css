@@ -1,0 +1,383 @@
+@import url("global.css");
+main {
+    width: 100%;
+    margin-top: 60px;
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+}
+
+.container_teacher {
+    width: 95%;
+    background-color: #FFFFFF;
+    display: flex;
+}
+
+.main_container {
+    width: 100%;
+    /*height: 700px;*/
+    margin: 20px;
+    background-color: #F7F8FA;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #707070;
+}
+
+.general_menu_title {
+    background-color: #FFFFFF;
+}
+
+.general_menu_title h3 {
+    padding: 15px;
+    color: #3C9B61;
+}
+
+.tab {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #707070;
+    border-bottom: 1px solid #707070;
+}
+
+.tab_title {
+    width: 200px;
+    border-right: 1px solid #707070;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tab_title h3 {
+    padding: 15px;
+    cursor: pointer;
+}
+
+.active {
+    color: #393939;
+}
+
+.deactivate {
+    color: #3C9B61;
+}
+
+.my_tutorials {
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.tutorial_container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border: 1px solid #707070;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: #FFFFFF;
+}
+
+.tutorial_containert {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}
+
+.tutorial_container_coumn_1 {
+    width: 80%;
+    cursor: pointer;
+}
+
+.tutorial_container_coumn_1 h3 {
+    padding-bottom: 10px;
+    color: #3C9B61;
+}
+
+.tutorial_container_coumn_2 h4 {
+    color: #3C9B61;
+}
+
+.tutorials_browser {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.btn_nage {
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn_nage div {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.secondary_container {
+    width: 30%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.new_tutorials {
+    min-height: 415px;
+}
+
+#vista {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.tutoring_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.container_title {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #707070;
+}
+
+.container_title h3 {
+    color: #3C9B61;
+}
+
+.container_body {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    border-bottom: 1px solid #707070;
+    border-left: 1px solid #707070;
+    border-right: 1px solid #707070;
+}
+
+.name_tutoring {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.name_tutoring img {
+    margin-right: 10px;
+    width: 30px;
+}
+
+.calendar_container {
+    margin-top: 25px;
+    width: 100%;
+    /*height: 340px;*/
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    /* Centrar el formulario en la página */
+    margin: 0 auto;
+    width: 100%;
+    /* Esquema del formulario */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+#buscar {
+    /* Centrar el formulario en la página */
+    display: inline-block;
+    text-align: right;
+    width: 40%;
+    /* Esquema del formulario */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+form li+li {
+    margin-top: 1em;
+}
+
+label {
+    /* Tamaño y alineación uniforme */
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+
+.labelre {
+    /* Tamaño y alineación uniforme */
+    display: inline-block;
+    width: 100%;
+    text-align: left;
+}
+
+input,
+select,
+textarea {
+    /* Para asegurarse de que todos los campos de texto tienen la misma configuración de letra
+       Por defecto, las áreas de texto tienen un tipo de letra monoespaciada */
+    font: 1em sans-serif;
+    /* Tamaño uniforme del campo de texto */
+    width: 100%;
+    box-sizing: border-box;
+    /* Hacer coincidir los bordes del campo del formulario */
+    border: 1px solid #999;
+}
+
+input:focus,
+textarea:focus {
+    /* Destacado adicional para elementos que tienen el cursor */
+    border-color: #000;
+}
+
+textarea {
+    /* Alinear los campos de texto multilínea con sus etiquetas */
+    vertical-align: top;
+    /* Proporcionar espacio para escribir texto */
+    height: 5em;
+}
+
+.button {
+    /* Alinear los botones con los campos de texto */
+    padding-left: 90px;
+    /* mismo tamaño que los elementos de la etiqueta */
+}
+
+button {
+    /* Este margen adicional representa aproximadamente el mismo espacio que el espacio
+       entre las etiquetas y sus campos de texto */
+    margin-left: .5em;
+}
+
+.selected {
+    width: 5%;
+}
+
+.time {
+    width: 25%;
+}
+
+.boton {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: right;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.special {
+    background: #ecf0f3;
+    box-shadow: 5px 13px 15px #cbced1, -13px -13px 10px #fff;
+    border-radius: 0px 0px 10px 10px;
+    padding: 15px;
+    align-items: center;
+    width: 90%;
+    height: 90%;
+}
+
+.btn-login {
+    margin: 15px auto;
+    width: 90%;
+    outline: none;
+    border: none;
+    background: #4245a8;
+    font-size: 20px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: #fefefe;
+    cursor: pointer;
+    margin-top: 70px;
+    margin-bottom: 120px;
+}
+
+.login-form {
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+}
+
+.dropimage {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+}
+
+.foto {
+    width: 100%;
+    height: 100%;
+}
+
+
+/*
+	Color fondo: #632432;
+	Color header: 246355;
+	Color borde: 0F362D;
+	Color iluminado: 369681;
+*/
+
+#main-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+table {
+    background-color: white;
+    text-align: center;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th,
+td {
+    padding: 10px;
+}
+
+thead {
+    background-color: #3C9B61;
+    border-bottom: solid 5px #0F362D;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #ddd;
+}
+
+tr:hover td {
+    background-color: #3C9B61;
+    color: white;
+}
