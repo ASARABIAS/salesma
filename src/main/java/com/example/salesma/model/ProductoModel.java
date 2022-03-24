@@ -5,36 +5,38 @@ import org.springframework.data.annotation.Id;
 public class ProductoModel {
     
     @Id
-    private long Id;
-    private String Nombre;
-    private double precio;
-    private int Unidades;
-
+    private long id;
+    private String nombre;
+    private int precio;
+    private int unidades;
 
     public long getId() {
-        return Id;
+        return id;
     }
-    public void setId(long id) {
-        Id = id;
+    public void setId() {
+        this.id = 20;
     }
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
-    public double getPrecio() {
+    public int getPrecio() {
         return precio;
     }
-    public void setPrecio(double precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
     public int getUnidades() {
-        return Unidades;
+        return unidades;
     }
     public void setUnidades(int unidades) {
-        Unidades = unidades;
+        this.unidades = unidades;
     }
+
+
+    
 
     
 }
