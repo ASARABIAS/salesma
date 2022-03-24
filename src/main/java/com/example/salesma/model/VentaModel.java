@@ -7,7 +7,7 @@ import org.springframework.data.annotation.Id;
 public class VentaModel {
     
     @Id
-    private long Id;
+    private long id;
     private long IdCliente;
     private Date Fecha;// cambiar tippo de dato
     private DetalleVenta [] Productos;//{Id del producto, cantidad, precio <- por cada producto}
@@ -16,10 +16,10 @@ public class VentaModel {
 
     
     public long getId() {
-        return Id;
+        return id;
     }
     public void setId(long id) {
-        Id = id;
+        this.id = id;
     }
     public long getIdCliente() {
         return IdCliente;
