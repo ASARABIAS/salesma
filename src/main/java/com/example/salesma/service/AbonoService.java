@@ -1,5 +1,10 @@
 package com.example.salesma.service;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
+import javax.lang.model.util.AbstractAnnotationValueVisitor7;
+
 import com.example.salesma.model.AbonoModelo;
 import com.example.salesma.repository.RepoAbono;
 
@@ -14,5 +19,17 @@ public class AbonoService {
     
     public AbonoModelo SaveAbono(AbonoModelo abonom){
         return abono.save(abonom);
+    }
+
+    public ArrayList<AbonoModelo> GetAbono(){
+        return (ArrayList<AbonoModelo>) abono.findAll();
+    }
+
+    public Optional<AbonoModelo> GetAbonoId(Long id){
+        return abono.findById(id);
+    }
+
+    public void DeleteAbonoId(Long id){
+        abono.deleteById(id);
     }
 }
