@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 import com.example.salesma.model.ClienteModelo;
-import com.example.salesma.repository.RepoCliente;
+import com.example.salesma.repository.ClientRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class ClienteService {
 
     @Autowired
-    RepoCliente clienterepo;
+    ClientRepository clienterepo;
 
     public ClienteModelo SaveCliente(ClienteModelo cliente) {
 

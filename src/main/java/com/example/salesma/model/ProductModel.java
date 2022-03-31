@@ -2,7 +2,7 @@ package com.example.salesma.model;
 
 import org.springframework.data.annotation.Id;
 
-public class ProductoModel {
+public class ProductModel {
     
     @Id
     private long id;

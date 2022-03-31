@@ -1,11 +1,11 @@
 package com.example.salesma.repository;
 
-import com.example.salesma.model.AbonoModelo;
+import com.example.salesma.model.ClienteModelo;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface RepoAbono extends MongoRepository<AbonoModelo,Long>{
+public interface ClientRepository extends MongoRepository<ClienteModelo, Long>{
     
 }

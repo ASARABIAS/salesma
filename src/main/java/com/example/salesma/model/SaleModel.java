@@ -4,7 +4,7 @@ import java.util.Date;
 
 import org.springframework.data.annotation.Id;
 
-public class VentaModel {
+public class SaleModel {
     
     @Id
     private long id;

@@ -6,7 +6,7 @@ import java.util.Optional;
 import javax.lang.model.util.AbstractAnnotationValueVisitor7;
 
 import com.example.salesma.model.AbonoModelo;
-import com.example.salesma.repository.RepoAbono;
+import com.example.salesma.repository.PaymentRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 public class AbonoService {
     
     @Autowired
-    RepoAbono abono;
+    PaymentRepository abono;
     
     public AbonoModelo SaveAbono(AbonoModelo abonom){
         return abono.save(abonom);
