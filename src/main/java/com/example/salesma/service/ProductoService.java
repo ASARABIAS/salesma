@@ -1,5 +1,8 @@
 package com.example.salesma.service;
 
+import java.util.ArrayList;
+import java.util.Optional;
+
 import com.example.salesma.model.ProductoModel;
 import com.example.salesma.repository.RepoProducto;
 
@@ -14,5 +17,17 @@ public class ProductoService {
 
     public ProductoModel saveProducto(ProductoModel productoModel){
         return productoRepository.save(productoModel);
+    }
+
+    public ArrayList<ProductoModel> getProducts(){
+        return (ArrayList<ProductoModel>)productoRepository.findAll();
+    }
+
+    public Optional<ProductoModel> getProductId(long id) {
+        return productoRepository.findById(id);
+    }
+
+    public void deletProductId(long id) {
+        productoRepository.deleteById(id);
     }
 }
