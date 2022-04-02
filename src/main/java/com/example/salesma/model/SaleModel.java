@@ -2,56 +2,58 @@ package com.example.salesma.model;
 
 import java.util.Date;
 
+import com.example.salesma.model.auxiliary.SaleDetail;
+import com.example.salesma.model.auxiliary.SaleState;
+
 import org.springframework.data.annotation.Id;
 
 public class SaleModel {
     
     @Id
     private long id;
-    private long IdCliente;
-    private Date Fecha;// cambiar tippo de dato
-    private DetalleVenta [] Productos;//{Id del producto, cantidad, precio <- por cada producto}
-    private long Total;
-    private Estados Estado; //debe, pago
+    private long idClient;
+    private Date date;// cambiar tippo de dato
+    private SaleDetail [] saleDetail;//{Id del producto, cantidad, precio <- por cada producto}
+    private double total;
+    private SaleState saleState; //debe, pago
 
-    
     public long getId() {
         return id;
     }
     public void setId(long id) {
         this.id = id;
     }
-    public long getIdCliente() {
-        return IdCliente;
+    public long getIdClient() {
+        return idClient;
     }
-    public void setIdCliente(long idCliente) {
-        IdCliente = idCliente;
+    public void setIdClient(long idClient) {
+        this.idClient = idClient;
     }
-    public Date getFecha() {
-        return Fecha;
+    public Date getDate() {
+        return date;
     }
-    public void setFecha(Date fecha) {
-        Fecha = fecha;
+    public void setDate(Date date) {
+        this.date = date;
     }
-   
-    public DetalleVenta[] getProductos() {
-        return Productos;
+    public SaleDetail[] getSaleDetail() {
+        return saleDetail;
     }
-    public void setProductos(DetalleVenta[] productos) {
-        Productos = productos;
+    public void setSaleDetail(SaleDetail[] saleDetail) {
+        this.saleDetail = saleDetail;
     }
-    public long getTotal() {
-        return Total;
+    public double getTotal() {
+        return total;
     }
-    public void setTotal(long total) {
-        Total = total;
+    public void setTotal(double total) {
+        this.total = total;
     }
-    public Estados getEstado() {
-        return Estado;
+    public SaleState getSaleState() {
+        return saleState;
     }
-    public void setEstado(Estados estado) {
-        Estado = estado;
+    public void setSaleState(SaleState saleState) {
+        this.saleState = saleState;
     }
 
+    
     
 }

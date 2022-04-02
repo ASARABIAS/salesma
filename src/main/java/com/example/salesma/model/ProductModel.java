@@ -6,37 +6,32 @@ public class ProductModel {
     
     @Id
     private long id;
-    private String nombre;
-    private int precio;
-    private int unidades;
+    private String name;
+    private double price;
+    private boolean stock;
 
     public long getId() {
         return id;
     }
-    public void setId() {
-        this.id = 20;
+    public void setId(long id) {
+        this.id = id;
     }
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
-    public int getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
     }
-    public void setPrecio(int precio) {
-        this.precio = precio;
+    public void setPrice(double price) {
+        this.price = price;
     }
-    public int getUnidades() {
-        return unidades;
+    public boolean isStock() {
+        return stock;
     }
-    public void setUnidades(int unidades) {
-        this.unidades = unidades;
+    public void setStock(boolean stock) {
+        this.stock = stock;
     }
-
-
-    
-
-    
 }

@@ -33,6 +33,6 @@ public class ProductService {
     }
 
     public ArrayList<ProductModel> searchProductName(String name) {
-        return productRepository.findByNombre(name);
+        return productRepository.findByName(name);
     }
 }
