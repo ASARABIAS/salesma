@@ -2,7 +2,7 @@ package com.example.salesma.model;
 
 import org.springframework.data.annotation.Id;
 
-public class ClienteModelo {
+public class ClientModel {
     
     //encapsulamiento
 

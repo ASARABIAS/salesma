@@ -3,7 +3,7 @@ package com.example.salesma.model;
 import java.util.Date;
 import org.springframework.data.annotation.Id;
 
-public class AbonoModelo {
+public class PaymentModel{
     
     @Id
     private long id;

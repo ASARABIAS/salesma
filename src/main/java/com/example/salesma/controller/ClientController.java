@@ -2,10 +2,9 @@ package com.example.salesma.controller;
 
 import java.util.ArrayList;
 import java.util.Optional;
-import java.util.OptionalDouble;
 
-import com.example.salesma.model.ClienteModelo;
-import com.example.salesma.service.ClienteService;
+import com.example.salesma.model.ClientModel;
+import com.example.salesma.service.ClientService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,29 +17,29 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/cliente")
-public class ClienteController {
+public class ClientController {
 
     @Autowired
-    ClienteService service;
+    ClientService service;
 
     @PostMapping()
-    public ClienteModelo SaveCliente(@RequestBody ClienteModelo cliente) {
+    public ClientModel createClient(@RequestBody ClientModel cliente) {
 
-        return service.SaveCliente(cliente);
+        return service.createClient(cliente);
     }
 
     @GetMapping()
-    public ArrayList<ClienteModelo> GetCliente(){
-        return  service.GetCliente();
+    public ArrayList<ClientModel> listClient(){
+        return  service.listClient();
     }
     
     @GetMapping(path="/{id}")
-    public Optional<ClienteModelo> GetClienteId(@PathVariable("id") Long id){
-        return  service.GetClienteId(id);
+    public Optional<ClientModel> editClientId(@PathVariable("id") Long id){
+        return  service.editClientId(id);
     }
     @DeleteMapping(path="/{id}")
-    public void DeleteClienteId(@PathVariable("id") Long id){
-          service.DeleteClienteId(id);
+    public void deleteClientId(@PathVariable("id") Long id){
+          service.deleteClientId(id);
     }
  
     
