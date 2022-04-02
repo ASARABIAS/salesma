@@ -33,7 +33,7 @@ public class ClientService {
     }
 
     public ArrayList<ClientModel> searchClientName(String name) {
-        return (clienterepo).findByNombre(name);
+        return clienterepo.findByNombre(name);
     }
 
 

@@ -8,7 +8,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
 public interface PaymentRepository extends MongoRepository<PaymentModel,Long>{
-    ArrayList<PaymentModel> findByNombre(String name);
+    ArrayList<PaymentModel> findByidventa(long idventa);
 }

@@ -8,7 +8,15 @@ public class PaymentModel{
     @Id
     private long id;
     
-    private long id_venta;
+    private long idventa;
+
+    public long getIdventa() {
+        return this.idventa;
+    }
+
+    public void setIdventa(long idventa) {
+        this.idventa = idventa;
+    }
     private long valor;
     private Date fecha;
 
@@ -20,13 +28,7 @@ public class PaymentModel{
         this.id = id;
     }
 
-    public long getId_venta() {
-        return this.id_venta;
-    }
-
-    public void setId_venta(long id_venta) {
-        this.id_venta = id_venta;
-    }
+ 
 
     public long getValor() {
         return this.valor;

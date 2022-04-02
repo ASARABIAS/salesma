@@ -31,8 +31,8 @@ public class PaymentService {
         paymentRepository.deleteById(id);
     }
 
-    public ArrayList<PaymentModel> searchPaymentName(String name) {
-        return (paymentRepository).findByNombre(name);
+    public ArrayList<PaymentModel> searchPaymentIdventa(long id_venta) {
+        return (paymentRepository).findByidventa(id_venta);
     }
 
 }

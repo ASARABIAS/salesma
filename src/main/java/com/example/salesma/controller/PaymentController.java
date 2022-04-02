@@ -44,9 +44,9 @@ public class PaymentController {
           service.deletePaymentId(id);
     }
 
-    @GetMapping(path = "/search/{name}" )
-    public ArrayList<PaymentModel> searchPaymentName(@PathVariable("name") String name) {
-        return service.searchPaymentName(name);
+    @GetMapping(path = "/search/{id_venta}" )
+    public ArrayList<PaymentModel> searchPaymentIdventa(@PathVariable("id_venta") long id_venta) {
+        return service.searchPaymentIdventa(id_venta);
     }
     
 }
