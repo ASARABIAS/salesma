@@ -53,4 +53,10 @@ public class ProductController {
         productService.deleteProductId(id);
     }
 
+    //buscar x Nombre
+    @GetMapping(path = "/search/{name}" )
+    public ArrayList<ProductModel> searchProduct(@PathVariable("name") String name) {
+        return productService.searchProductName(name);
+    }
+
 }

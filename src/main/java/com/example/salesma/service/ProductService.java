@@ -31,4 +31,8 @@ public class ProductService {
     public void deleteProductId(long id) {
         productRepository.deleteById(id);
     }
+
+    public ArrayList<ProductModel> searchProductName(String name) {
+        return productRepository.findByNombre(name);
+    }
 }
