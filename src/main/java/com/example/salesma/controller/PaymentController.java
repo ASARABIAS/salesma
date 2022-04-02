@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,7 +23,7 @@ public class PaymentController {
     @Autowired
     PaymentService service;
 
-    @PostMapping()
+    @PostMapping(path = "/create")
     public PaymentModel createPayment(@RequestBody PaymentModel abonom) {
 
         return service.createPayment(abonom);
@@ -33,14 +34,19 @@ public class PaymentController {
         return  service.listPayment();
     }
     
-    @GetMapping(path="/{id}")
+    @PutMapping(path = "/edit/{id}")
     public Optional<PaymentModel> editPaymentId(@PathVariable("id") Long id){
         return  service.editPaymentId(id);
     }
     
-    @DeleteMapping(path="/{id}")
+    @DeleteMapping(path = "/delete/{id}" )
     public void deletePaymentId(@PathVariable("id") Long id){
           service.deletePaymentId(id);
+    }
+
+    @GetMapping(path = "/search/{name}" )
+    public ArrayList<PaymentModel> searchPaymentName(@PathVariable("name") String name) {
+        return service.searchPaymentName(name);
     }
     
 }

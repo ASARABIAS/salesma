@@ -15,8 +15,8 @@ public class PaymentService {
     @Autowired
     PaymentRepository paymentRepository;
     
-    public PaymentModel createPayment(PaymentModel abonom){
-        return paymentRepository.save(abonom);
+    public PaymentModel createPayment(PaymentModel payment){
+        return paymentRepository.save(payment);
     }
 
     public ArrayList<PaymentModel> listPayment(){
@@ -29,6 +29,10 @@ public class PaymentService {
 
     public void deletePaymentId(Long id){
         paymentRepository.deleteById(id);
+    }
+
+    public ArrayList<PaymentModel> searchPaymentName(String name) {
+        return (paymentRepository).findByNombre(name);
     }
 
 }

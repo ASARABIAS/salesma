@@ -32,5 +32,9 @@ public class ClientService {
         clienterepo.deleteById(id);
     }
 
+    public ArrayList<ClientModel> searchClientName(String name) {
+        return (clienterepo).findByNombre(name);
+    }
+
 
 }
