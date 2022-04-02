@@ -32,7 +32,7 @@ public class PaymentService {
     }
 
     public ArrayList<PaymentModel> searchPaymentIdventa(long id_venta) {
-        return (paymentRepository).findByidventa(id_venta);
+        return (paymentRepository).findByIdsale(id_venta);
     }
 
 }

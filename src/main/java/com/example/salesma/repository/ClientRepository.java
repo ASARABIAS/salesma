@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClientRepository extends MongoRepository<ClientModel, Long>{
-    ArrayList<ClientModel> findByNombre(String name);
+    ArrayList<ClientModel> findByName(String name);
 }

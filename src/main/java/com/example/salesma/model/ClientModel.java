@@ -9,11 +9,10 @@ public class ClientModel {
     @Id
     private long id;
     
-    private String nombre;
-    private String apellidos;
-    private String direccion;
-    private String telefono;
-
+    private String name;
+    private String lastname;
+    private String direction;
+    private String phone;
 
     public long getId() {
         return this.id;
@@ -23,37 +22,40 @@ public class ClientModel {
         this.id = id;
     }
 
-    public String getNombre() {
-        return this.nombre;
+    public String getName() {
+        return this.name;
     }
 
-    public void setNombre(String name) {
-        this.nombre = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getApellidos() {
-        return this.apellidos;
+    public String getLastname() {
+        return this.lastname;
     }
 
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
-    public String getDireccion() {
-        return this.direccion;
+    public String getDirection() {
+        return this.direction;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setDirection(String direction) {
+        this.direction = direction;
     }
 
-    public String getTelefono() {
-        return this.telefono;
+    public String getPhone() {
+        return this.phone;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
+
+
+    
 
 
    

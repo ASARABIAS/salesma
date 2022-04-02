@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PaymentRepository extends MongoRepository<PaymentModel,Long>{
-    ArrayList<PaymentModel> findByidventa(long idventa);
+    ArrayList<PaymentModel> findByIdsale(long idventa);
 }
