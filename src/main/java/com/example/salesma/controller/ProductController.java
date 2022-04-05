@@ -34,17 +34,17 @@ public class ProductController {
     }
     @PostMapping(path = "/create")
     public ProductModel createProduct(@RequestBody ProductModel productModel){
-        return productService.createProducto(productModel);
+        return productService.create_editProducto(productModel);
     }
 
     //editar producto
     @GetMapping(path = "/edit/{id}")
     public Optional<ProductModel> editProduct(@PathVariable("id") long id) {
-        return productService.editProductId(id);
+        return productService.searchProductId(id);
     }
     @PutMapping(path = "/edit/{id}")
-    public void editProduct(@PathVariable("id") long id, @RequestBody ProductModel productModel){
-        //aguardamos y redireccionamos a productos
+    public ProductModel editProduct(@PathVariable("id") long id, @RequestBody ProductModel productModel){
+        return productService.create_editProducto(productModel);
     }
 
     //eliminar producto
@@ -53,9 +53,15 @@ public class ProductController {
         productService.deleteProductId(id);
     }
 
+    //buscar x ID
+    @GetMapping(path = "/search/{id}" )
+    public Optional<ProductModel> searchProductID(@PathVariable("id") long id) {
+        return productService.searchProductId(id);
+    }
+ 
     //buscar x Nombre
     @GetMapping(path = "/search/{name}" )
-    public ArrayList<ProductModel> searchProduct(@PathVariable("name") String name) {
+    public ArrayList<ProductModel> searchProductName(@PathVariable("name") String name) {
         return productService.searchProductName(name);
     }
 

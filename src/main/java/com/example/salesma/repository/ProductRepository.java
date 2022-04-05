@@ -10,5 +10,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ProductRepository extends MongoRepository<ProductModel,Long> {
 
-    ArrayList<ProductModel> findByNombre(String name);
+    ArrayList<ProductModel> findBy(String name);
 }
