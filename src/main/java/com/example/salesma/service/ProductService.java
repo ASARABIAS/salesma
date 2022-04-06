@@ -35,6 +35,7 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
+
     // Buscar x nombre
     public ArrayList<ProductModel> searchProductParams(String params) {
 
