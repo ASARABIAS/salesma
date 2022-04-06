@@ -11,4 +11,6 @@ import org.springframework.stereotype.Repository;
 public interface ProductRepository extends MongoRepository<ProductModel,Long> {
 
     ArrayList<ProductModel> findByName(String name);
+
+    ArrayList<ProductModel> findByStock(boolean stock);
 }
