@@ -25,7 +25,6 @@ public class ClientController {
 
     @PostMapping(path = "/create")
     public ClientModel createClient(@RequestBody ClientModel cliente) {
-
         return service.createClient(cliente);
     }
 

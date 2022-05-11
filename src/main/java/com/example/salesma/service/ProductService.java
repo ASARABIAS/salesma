@@ -36,7 +36,7 @@ public class ProductService {
     }
 
 
-    // Buscar x nombre
+    // Buscar x campo = valor
     public ArrayList<ProductModel> searchProductParams(String params) {
 
         try{

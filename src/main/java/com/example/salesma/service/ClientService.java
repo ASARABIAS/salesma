@@ -20,20 +20,34 @@ public class ClientService {
         return clienterepo.save(cliente);
     }
 
-    public ArrayList<ClientModel> listClient(){
+    public ArrayList<ClientModel> listClient() {
         return (ArrayList<ClientModel>) clienterepo.findAll();
     }
 
-    public Optional<ClientModel> editClientId(Long id){
+    public Optional<ClientModel> editClientId(Long id) {
         return clienterepo.findById(id);
     }
 
-    public void deleteClientId(Long id){
+    public void deleteClientId(Long id) {
         clienterepo.deleteById(id);
     }
 
     public ArrayList<ClientModel> searchClientName(String name) {
         return clienterepo.findByName(name);
+    }
+
+    public long[] nameClientToIds(String name) {
+
+        ArrayList<ClientModel> clientsModel = clienterepo.findByName(name);
+        int sizeClientsModel=clientsModel.size();
+        ClientModel auxClientModel;
+        long[] aux = new long[sizeClientsModel];
+
+        for(int i=0;i<sizeClientsModel;i++){
+            auxClientModel = clientsModel.get(i);
+            aux[i]=auxClientModel.getId();
+        }
+        return aux;
     }
 
 

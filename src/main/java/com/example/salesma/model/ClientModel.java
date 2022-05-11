@@ -8,11 +8,10 @@ public class ClientModel {
 
     @Id
     private long id;
-    
     private String name;
     private String lastname;
     private String direction;
-    private String phone;
+    private long phone;
 
     public long getId() {
         return this.id;
@@ -46,11 +45,11 @@ public class ClientModel {
         this.direction = direction;
     }
 
-    public String getPhone() {
+    public long getPhone() {
         return this.phone;
     }
 
-    public void setPhone(String phone) {
+    public void setPhone(long phone) {
         this.phone = phone;
     }
 
