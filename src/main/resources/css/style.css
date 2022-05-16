@@ -1,50 +1,4 @@
-* {
-    box-sizing: border-box;
-}
-
-body {
-    padding: 0px;
-    margin: 0px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-
-header div.header-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-}
-
-div.header-top div.header-letf h1 {
-    margin: 0px;
-}
-
-div.header-top div.header-right i,
-main section div.container-top {
-    font-size: large;
-}
-
-header div.header-bottom {
-    padding-bottom: 10px;
-    border-bottom: 1px solid black;
-}
-
-div.header-bottom nav.menu ul {
-    display: flex;
-    justify-content: space-evenly;
-    margin: 0px;
-    padding: 0px;
-    list-style: none;
-}
-
-div.header-bottom nav.menu ul li a {
-    text-decoration: none;
-    color: black;
-}
-
-div.header-bottom nav.menu ul li a i {
-    font-size: x-large;
-}
+@import url('global.css');
 
 main {
     margin: 10px;
@@ -69,6 +23,10 @@ div.container-bottom article div.articule-left {
     display: flex;
 }
 
+div.container-bottom article div.articule-left div.articule-left-left{
+    width: 40%;
+}
+
 div.container-bottom article div.articule-left div.articule-left-left img {
     width: 100px;
 }
@@ -77,6 +35,7 @@ div.container-bottom article div.articule-left div.articule-left-right {
     display: flex;
     flex-wrap: wrap;
     align-content: flex-start;
+    margin: 5px;
 }
 
 div.container-bottom article div.articule-left div.articule-left-right h3,
@@ -100,5 +59,3 @@ div.container-bottom article div.articule-right i.elemnt-center {
     align-self: center;
     margin: 10px;
 }
-
-footer {}
