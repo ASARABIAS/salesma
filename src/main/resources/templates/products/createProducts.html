@@ -10,6 +10,7 @@
         <title>Document</title>
         <link rel="stylesheet" href="../../css/product.css">
         <script src="https://kit.fontawesome.com/c192b78caa.js" crossorigin="anonymous"></script>
+        
     </head>
 
     <header>
@@ -62,7 +63,7 @@
                 </div>
                 <div class="form-buttons">
                     <button type="reset">Borrar</button>
-                    <button>Crear</button>
+                    <button type="submit">Crear</button>
                 </div>
             </form>
         </div>
@@ -74,7 +75,23 @@
 </head>
 
 <body>
+    <script >
+        let form = document.querySelector('form');
+        let inpust = document.querySelectorAll('input,textarea')
+        
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let campos = new Object();
 
+            inpust.forEach(element =>{
+                const name = element.name;
+                const value = element.value ? element.value :'default';
+                campos[name]= value;
+            });
+            
+            console.log("Datos:",JSON.stringify(campos));
+        });
+    </script>
 </body>
 
 </html>
