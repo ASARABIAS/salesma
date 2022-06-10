@@ -1,0 +1,57 @@
+:root {
+    --header: white;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 0px;
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+header {
+    background-color: var(--header);
+}
+
+header div.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+div.header-top div.header-letf h1 {
+    margin: 0px;
+}
+
+div.header-top div.header-right i,
+main section div.container-top {
+    font-size: large;
+}
+
+header div.header-bottom {
+    padding-bottom: 10px;
+    border-bottom: 1px solid black;
+}
+
+div.header-bottom nav.menu ul {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+div.header-bottom nav.menu ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+div.header-bottom nav.menu ul li a i {
+    font-size: x-large;
+}
+
+footer {}

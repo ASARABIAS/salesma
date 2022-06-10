@@ -1,0 +1,61 @@
+@import url('global.css');
+
+main {
+    margin: 10px;
+}
+
+main section div.container-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+main section div.container-bottom article {
+    display: flex;
+    border-radius: 10px;
+    border: solid 1px black;
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+div.container-bottom article div.articule-left {
+    display: flex;
+}
+
+div.container-bottom article div.articule-left div.articule-left-left{
+    width: 40%;
+}
+
+div.container-bottom article div.articule-left div.articule-left-left img {
+    width: 100px;
+}
+
+div.container-bottom article div.articule-left div.articule-left-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 5px;
+}
+
+div.container-bottom article div.articule-left div.articule-left-right h3,
+div.container-bottom article div.articule-left div.articule-left-right p,
+div.container-bottom article div.articule-left div.articule-left-right strong {
+    margin: 2px 0px;
+    width: 100%;
+}
+
+div.container-bottom article div.articule-right {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+div.container-bottom article div.articule-right i {
+    margin: 5px;
+}
+
+div.container-bottom article div.articule-right i.elemnt-center {
+    align-self: center;
+    margin: 10px;
+}
