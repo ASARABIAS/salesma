@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Article = (props) => {
     return (
@@ -13,7 +14,7 @@ const Article = (props) => {
             <div className="articule-right">
                 <i className="fas fa-marker"></i>
                 <i className="fas fa-check"></i>
-                <i className="fas fa-arrow-right elemnt-center"></i>
+                <Link to={`${props.route}/1`}></Link><i className="fas fa-arrow-right elemnt-center"></i>
             </div>
         </article>
     );

@@ -1,10 +1,10 @@
 import React from 'react';
 import Article from './Article';
 
-const SectionBody = () => {
+const SectionBody = (props) => {
     return (
         <div className="container-bottom">
-            <Article/>
+            <Article route={props.route}/>
             <Article/>
         </div>
     );

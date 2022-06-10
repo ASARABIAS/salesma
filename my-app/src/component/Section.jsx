@@ -5,8 +5,8 @@ import SectionBody from './SectionBody';
 const Section = (props) => {
     return (
         <section className="container" id="container-product">
-             <SectionTitle name={props.title}/>
-             <SectionBody/>
+            <SectionTitle name={props.title} route={props.route}/>
+            <SectionBody route={props.route}/>
         </section>
     );
 }
