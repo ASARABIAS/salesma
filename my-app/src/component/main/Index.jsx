@@ -1,55 +1,44 @@
 
-import Section from '../Section.jsx';
-import React, { Component } from 'react';
+import React from 'react';
+import { useState, useEffect } from 'react';
+import Article from '../Article.jsx';
+import SectionTitle from '../SectionTitle.jsx';
 
-class Main extends Component {
+const Index = () => {
+    const [products, setProducts] = useState([]);
 
-    componentDidMount(){
-        /*
-        const endpoint ='https://api.giphy.com/v1/gifs/trending?api_key=dIUNaPUd2E4EpZ9Vm4mtb7xvSmIO8Hlw';
-        fetch('http://localhost:8080/products',{
-            method:'get',
-            
+    useEffect(() => {
+        fetch('http://localhost:8080/products', {
+            'mode': 'cors',
+            'headers': {
+                'Access-Control-Allow-Origin': '*',
+            }
         })
-        .then(resp =>resp.json())
-        .then(resp =>{
-            console.log("respuesta: ",resp);
-        })
-        .catch(error => console.log(error));
-        */
-    }
+            .then(res => res.json())
+            .then(data => {
+                setProducts(data);
+            });
+    }, []);
 
-    render() {
-        return (
-            <main>
-                <Section
-                    title="Top 5 de los productos mas Antiguos"
-                />
-                <Section
-                    title="Top 5 de las Ventas mas Antiguas"
-                />
-            </main>
-        );
-    }
-}
-
-
-
-/*
-const Main = () => {
     return (
         <main>
-           <Section 
-                title= "Top 5 de los productos mas Antiguos"
-                body="Precio"
-           />
-           <Section 
-                title= "Top 5 de las Ventas mas Antiguas"
-                body="Precio"
-           />
+            <section className="container" id="container-product">
+                <SectionTitle name={"Top 5 de los productos mas Antiguos"} />
+                <div className="container-bottom">
+                    {products.map((item, index) => {
+                        return (<Article
+                            key={index}
+                            route={'/products'}
+                            id={item.id}
+                            name={item.name}
+                            price={item.price}
+                        />);
+                    })}
+                </div>
+            </section>
         </main>
     );
 }
 
-*/
-export default Main;
+export default Index;
+

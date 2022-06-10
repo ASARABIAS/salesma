@@ -1,5 +1,5 @@
 import Header from './component/partials/Header.jsx';
-import Main from './component/main/Index.jsx';
+import Index from './component/main/Index.jsx';
 import { Routes, Route} from 'react-router-dom';
 import Product from './component/main/product/Product.jsx';
 import CreateProduct from './component/main/product/CreateProduct.jsx';
@@ -10,10 +10,10 @@ function App() {
     <>
       <Header/>
       <Routes>
-        <Route path='/' element={<Main/>}/>
+        <Route path='/' element={<Index/>}/>
         <Route path='/products' element={<Product/>}/>
         <Route path='/products/create' element={<CreateProduct/>}/>
-        <Route path='/products/:id' element={<DetailProduct/>}/>
+        <Route path='/products/1' element={<DetailProduct/>}/>
       </Routes>
     </>
   );
