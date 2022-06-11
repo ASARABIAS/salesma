@@ -9,7 +9,7 @@ const Article = (props) => {
                 <div className="articule-left-right">
                     <h3>{props.name}</h3>
                     <strong>{props.price}</strong>
-                    <p>fecha registrado</p>
+                    <p>{props.dateofcreation.split("T")[0]}</p>
                 </div>
             </div>
             <div className="articule-right">

@@ -30,17 +30,18 @@ public class ProductController {
         return productService.listProducts();
     }
 
+    //buscar x 5 mas viejos
+    @GetMapping(path = "/fisrtstock")
+    public ArrayList<ProductModel> listProductOld(){
+        return productService.listProductOld();
+    }
+
     //buscar x ID
     @GetMapping(path = "/{id}")
     public Optional<ProductModel> searchProductId(@PathVariable("id") long id) {
         return productService.searchProductId(id);
     }
 
-    //crear producto
-    @GetMapping(path = "/create")
-    public void createProduct() {
-        //retornar vista
-    }
     @PostMapping(path = "/create")
     public ProductModel createProduct(@RequestBody ProductModel productModel){
         return productService.create_editProducto(productModel);
@@ -51,6 +52,7 @@ public class ProductController {
     public Optional<ProductModel> editProduct(@PathVariable("id") long id) {
         return productService.searchProductId(id);
     }
+
     @PutMapping(path = "/edit/{id}")
     public ProductModel editProduct(@PathVariable("id") long id, @RequestBody ProductModel productModel){
         return productService.create_editProducto(productModel);

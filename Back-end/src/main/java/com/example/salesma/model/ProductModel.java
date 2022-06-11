@@ -1,5 +1,7 @@
 package com.example.salesma.model;
 
+import java.util.Date;
+
 import org.springframework.data.annotation.Id;
 
 public class ProductModel {
@@ -8,6 +10,8 @@ public class ProductModel {
     private long id;
     private String name;
     private double price;
+    private Date dateofcreation;
+    private String description;
     private boolean stock;
 
     public long getId() {
@@ -27,6 +31,19 @@ public class ProductModel {
     }
     public void setPrice(double price) {
         this.price = price;
+    }
+    
+    public Date getDateofcreation() {
+        return dateofcreation;
+    }
+    public void setDateofcreation(Date dateofcreation) {
+        this.dateofcreation = dateofcreation;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
     }
     public boolean isStock() {
         return stock;

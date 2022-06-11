@@ -8,7 +8,7 @@ const Index = () => {
     const [products, setProducts] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:8080/products', {
+        fetch('http://localhost:8080/products/fisrtstock', {
             'mode': 'cors',
             'headers': {
                 'Access-Control-Allow-Origin': '*',
@@ -16,6 +16,7 @@ const Index = () => {
         })
             .then(res => res.json())
             .then(data => {
+                console.log("data: ", data);
                 setProducts(data);
             });
     }, []);
@@ -29,9 +30,7 @@ const Index = () => {
                         return (<Article
                             key={index}
                             route={'/products'}
-                            id={item.id}
-                            name={item.name}
-                            price={item.price}
+                            {...item}
                         />);
                     })}
                 </div>

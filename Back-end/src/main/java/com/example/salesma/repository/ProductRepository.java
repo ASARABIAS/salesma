@@ -13,4 +13,8 @@ public interface ProductRepository extends MongoRepository<ProductModel,Long> {
     ArrayList<ProductModel> findByName(String name);
 
     ArrayList<ProductModel> findByStock(boolean stock);
+
+    //ArrayList<ProductModel> findTop5OrderByDateofcreation();
+
+    ArrayList<ProductModel> findTop5ByStockOrderByDateofcreationAsc(boolean stock);
 }
