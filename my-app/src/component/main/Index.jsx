@@ -6,6 +6,7 @@ import SectionTitle from '../SectionTitle.jsx';
 
 const Index = () => {
     const [products, setProducts] = useState([]);
+    const route='/products';
 
     useEffect(() => {
         fetch('http://localhost:8080/products/fisrtstock', {
@@ -16,7 +17,6 @@ const Index = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log("data: ", data);
                 setProducts(data);
             });
     }, []);
@@ -29,7 +29,7 @@ const Index = () => {
                     {products.map((item, index) => {
                         return (<Article
                             key={index}
-                            route={'/products'}
+                            route={route}
                             {...item}
                         />);
                     })}

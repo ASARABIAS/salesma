@@ -29,9 +29,7 @@ const Product = () => {
                         return (<Article
                             key={index}
                             route={route}
-                            id={item.id}
-                            name={item.name}
-                            price={item.price}
+                            {...item}
                         />);
                     })}
                 </div>
