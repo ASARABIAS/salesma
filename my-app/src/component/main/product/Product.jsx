@@ -3,35 +3,36 @@ import { useState, useEffect } from 'react';
 import Article from '../../Article.jsx';
 import SectionTitle from '../../SectionTitle.jsx';
 
+import method from '../../../js/method.js';
+
 const Product = () => {
     const [products, setProducts] = useState([]);
+    const [messenger, setMessenger] = useState(['Cargando...']);
     const route='/products';
 
-    useEffect(() => {
-        fetch('http://localhost:8080/products', {
-            'mode': 'cors',
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-            }
-        })
-            .then(res => res.json())
-            .then(data => {
-                setProducts(data);
+    useEffect(() => method.get('http://localhost:8080/products',setProducts,setMessenger), []);
+
+    const elements = () => {
+        if(products.length > 0){
+            return products.map((item, index) => {
+                return (<Article
+                    key={index}
+                    route={route}
+                    {...item}
+                />);
             });
-    }, []);
+        }else{
+            return <p>{messenger}</p>;
+        }
+        
+    }
 
     return (
         <main>
             <section className="container" id="container-product">
                 <SectionTitle name={"Productos"} route={route}/>
                 <div className="container-bottom">
-                    {products.map((item, index) => {
-                        return (<Article
-                            key={index}
-                            route={route}
-                            {...item}
-                        />);
-                    })}
+                    {elements()}
                 </div>
             </section>
         </main>
