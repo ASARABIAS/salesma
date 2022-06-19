@@ -1,13 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useRef } from 'react';
 import method from '../../../js/method';
+import {useNavigate} from 'react-router-dom';
 
 const CreateProduct = () => {
+    const [senddata, setData] = useState([]);
     const nameInput = useRef();
     const priceInput = useRef();
     const descriptionInput = useRef();
-
     const messenger = useRef();
+    const navigate = useNavigate();
 
     const sendData= () =>{
         messenger.current.innerHTML = 'Cargando...';
@@ -21,11 +23,10 @@ const CreateProduct = () => {
             dateofcreation:new Date(Date.now()).toISOString()
         }
 
-        console.log("data",data);
-
         const rta = method.post('http://localhost:8080/products/create',data,messenger);
 
         if(rta){
+            window.confirm('Desea crear otro producto?')? navigate('/products/create'):navigate('/products');
             messenger.current.innerHTML = 'Producto Creado';
         }
 
