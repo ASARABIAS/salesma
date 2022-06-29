@@ -29,7 +29,6 @@ public class ProductService {
     public ProductModel create_editProducto(ProductModel productModel) {
         return productRepository.save(productModel);
     }
-
     // Eliminar
     public void deleteProductId(long id) {
         productRepository.deleteById(id);

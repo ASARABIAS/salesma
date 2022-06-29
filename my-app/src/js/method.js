@@ -60,7 +60,27 @@ const method = {
         }else{
             return false;
         }
-    }
+    },
+    update:async (url, data, setMessenger) => {
+        return await fetch(url, {
+            mode: 'cors',
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data),
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                return true;
+            })
+            .catch(err => {
+                setMessenger.current.innerHTML = "Error al cargar. Buscar al Programador 👀👀👀";
+                return false;
+            });
+
+    },
 }
 
 module.exports = method;

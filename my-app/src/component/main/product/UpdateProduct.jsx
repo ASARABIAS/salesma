@@ -1,12 +1,13 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link,useNavigate } from 'react-router-dom';
 import method from '../../../js/method';
 
 const UpdateProduct = (props) => {
     const [datos, setDatos] = useState({});
     const { id } = useParams();
     const messenger = useRef();
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetch(`http://localhost:8080/products/${id}`, {
@@ -28,7 +29,7 @@ const UpdateProduct = (props) => {
 
     const conformUpdate = () => {
         messenger.current.innerHTML = 'Cargando...';
-        const rta = method.delete(` el producto # ${id}`, `http://localhost:8080/products/delete/${id}`,messenger)
+        const rta = method.update(`http://localhost:8080/products/edit/${id}`,datos,messenger)
         
         if(rta){
             props.history.push('/products');
@@ -37,7 +38,7 @@ const UpdateProduct = (props) => {
     return (
         <main>
         <div className="container-top">
-            <h2>{`Editando Producto # ${id}`}</h2>
+            <h2>{`Editando Producto ${datos.name}`}</h2>
         </div>
         <div className="container-bottom">
             <div className='form' >
@@ -59,11 +60,6 @@ const UpdateProduct = (props) => {
                 <div>
                     <label htmlFor="dateofcreation">Fecha de Creación:</label>
                     <input type="Datetime" name="dateofcreation" id="dateofcreation" placeholder="Fecha de creación" value={datos.dateofcreation} onChange={handleChange} />
-                </div>
-                <div>
-                    <label htmlFor="stock">stock:</label>
-                    <input type="text" name="stock" id="stock" value={datos.stock? 'Disponible' : 'Vedido'}  onChange={handleChange}/>
-
                 </div>
                 <div>
                     <small className='messenger' ref={messenger}></small>

@@ -17,9 +17,7 @@ const DetailProduct = (props) => {
             }
         })
             .then(res => res.json())
-            .then(data => {
-                
-            });
+            .then(data => setProduct(data));
     }, []);
 
     const conformDelete = () => {
@@ -34,7 +32,7 @@ const DetailProduct = (props) => {
     return (
         <main>
             <div className="container-top">
-                <h2>{`Detalle Producto # ${id}`}</h2>
+                <h2>{`Detalle Producto ${product?.name}`}</h2>
             </div>
             <div className="container-bottom">
                 <div className='form'>
@@ -43,7 +41,7 @@ const DetailProduct = (props) => {
                     </div>
                     <div>
                         <label htmlFor="name">Nombre:</label>
-                        <input type="text" name="name" id="name" placeholder="Nombre" value={product.name} disabled />
+                        <input type="text" name="name" id="name" placeholder="Nombre" value={product?.name} disabled />
                     </div>
                     <div>
                         <label htmlFor="description">Descripcion:</label>
