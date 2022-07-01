@@ -1,0 +1,126 @@
+@import url('global.css');
+main {
+    margin: 10px;
+}
+
+main section div.container-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0px 10px;
+}
+
+main section div.container-bottom article {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 10px;
+    border: solid 1px black;
+    padding: 5px;
+    margin: 10px 0px;
+}
+
+div.container-bottom article div.articule-left {
+    display: flex;
+}
+
+div.container-bottom article div.articule-left div.articule-left-left {
+    width: 40%;
+}
+
+div.container-bottom article div.articule-left div.articule-left-left img {
+    width: 100px;
+}
+
+div.container-bottom article div.articule-left div.articule-left-right {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 5px;
+}
+
+div.container-bottom article div.articule-left div.articule-left-right h3,
+div.container-bottom article div.articule-left div.articule-left-right p,
+div.container-bottom article div.articule-left div.articule-left-right strong {
+    margin: 2px 0px;
+    width: 100%;
+}
+
+div.container-bottom article div.articule-right {
+    display: flex;
+    align-items: flex-end;
+    flex-direction: row;
+}
+
+div.container-bottom article div.articule-right a {
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+div.container-bottom article div.articule-right a.elemnt-center {
+    align-self: center;
+    margin: 10px;
+}
+
+/*Producto*/
+
+main {
+    width: 95%;
+    margin: 10px auto;
+}
+
+main div.container-top h2 {
+    text-align: center;
+}
+
+main div.container-bottom .form {
+    margin: 0px 10%;
+}
+
+main div.container-bottom .form div.form-img {
+    text-align: center;
+}
+
+main div.container-bottom .form div img {
+    width: 150px;
+    border-radius: 50%;
+}
+
+main div.container-bottom .form div input,
+main div.container-bottom .form textarea {
+    display: block;
+    width: 100%;
+    margin: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+main div.container-bottom .form div.form-buttons {
+    text-align: right;
+}
+
+main div.container-bottom .form div.form-buttons button {
+    padding: 2px;
+    margin: 5px;
+    width: 60px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+main div.container-bottom .form div.form-buttons button:nth-child(1) {
+    background-color: rgb(229, 192, 192);
+}
+
+main div.container-bottom .form div.form-buttons button:nth-child(2) {
+    background-color: rgb(171, 215, 245);
+}
+
+#img{
+   display: none;
+}
+
+.messenger{
+    color: rgb(110, 74, 74);
+}
