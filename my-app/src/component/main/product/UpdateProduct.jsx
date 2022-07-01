@@ -27,12 +27,12 @@ const UpdateProduct = (props) => {
         setDatos({ ...datos, [name]: value });
       };
 
-    const conformUpdate = () => {
+    const conformUpdate = async () => {
         messenger.current.innerHTML = 'Cargando...';
-        const rta = method.update(`http://localhost:8080/products/edit/${id}`,datos,messenger)
+        const rta = await method.update(`http://localhost:8080/products/edit/${id}`,datos,messenger)
         
         if(rta){
-            props.history.push('/products');
+            navigate('/products');
         }
     }
     return (

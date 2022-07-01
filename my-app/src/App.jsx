@@ -2,7 +2,6 @@ import { Routes, Route} from 'react-router-dom';
 
 import Header from './component/partials/Header.jsx';
 import Index from './component/main/Index.jsx';
-
 import Product from './component/main/product/Product.jsx';
 import CreateProduct from './component/main/product/CreateProduct.jsx';
 import DetailProduct from './component/main/product/DetailProduct.jsx';
