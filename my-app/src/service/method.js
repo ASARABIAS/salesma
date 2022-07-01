@@ -1,4 +1,6 @@
 
+
+
 const method = {
     get: (url, setData, setMessenger) => {
         fetch(url, {

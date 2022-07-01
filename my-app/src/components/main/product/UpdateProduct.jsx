@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import { useParams, Link,useNavigate } from 'react-router-dom';
-import method from '../../../js/method';
+import method from '../../../service/method';
 
 const UpdateProduct = (props) => {
     const [datos, setDatos] = useState({});
