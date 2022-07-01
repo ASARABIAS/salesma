@@ -1,4 +1,5 @@
 @import url('global.css');
+
 main {
     margin: 10px;
 }
@@ -22,7 +23,7 @@ div.container-bottom article div.articule-left {
     display: flex;
 }
 
-div.container-bottom article div.articule-left div.articule-left-left {
+div.container-bottom article div.articule-left div.articule-left-left{
     width: 40%;
 }
 

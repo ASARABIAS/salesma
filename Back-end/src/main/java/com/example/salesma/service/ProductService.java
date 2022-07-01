@@ -20,11 +20,15 @@ public class ProductService {
         return (ArrayList<ProductModel>) productRepository.findAll();
     }
 
+    // listar 5 mas antiguos
+    public ArrayList<ProductModel> listProductOld() {
+        return (ArrayList<ProductModel>) productRepository.findTop5ByStockOrderByDateofcreationAsc(true);
+    }
+
     // Crear y editar
     public ProductModel create_editProducto(ProductModel productModel) {
         return productRepository.save(productModel);
     }
-
     // Eliminar
     public void deleteProductId(long id) {
         productRepository.deleteById(id);

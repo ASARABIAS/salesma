@@ -1,21 +1,23 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Article = (props) => {
     return (
         <article>
             <div className="articule-left">
                 <div className="articule-left-right">
-                    <h3>Nombre del cliente</h3>
-                    <strong>total de la venta</strong>
-                    <p>fecha registrado</p>
+                    <h3>{props.name}</h3>
+                    <strong>{props.price}</strong>
+                    <p>{props.dateofcreation?props.dateofcreation.split("T")[0]:'none'}</p>
                 </div>
             </div>
             <div className="articule-right">
-                <i className="fas fa-marker"></i>
-                <i className="fas fa-check"></i>
-                <i className="fas fa-arrow-right elemnt-center"></i>
+                <Link to={`${props.route}/update/${props.id}`}><i className="fas fa-marker"></i></Link>
+                <Link to={'#'} onClick={props.delete}><i className="fas fa-trash-alt"></i></Link>
+                <Link to={`${props.route}/${props.id}`} className='elemnt-center'><i className="fas fa-arrow-right"></i></Link>
             </div>
         </article>
+        
     );
 }
 
