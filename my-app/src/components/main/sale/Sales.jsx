@@ -1,47 +1,62 @@
 import React from 'react';
-import { useState, useEffect,  useRef  } from 'react';
-import Article from '../sale/Articles.jsx';
+import { useState, useEffect, useRef } from 'react';
+import Article from './Articles.jsx';
 import SectionTitle from '../../SectionTitle.jsx';
+import { get, delet } from '../../../service/methodApi'
+import { useNavigate } from 'react-router';
 
-const Product = (props) => {
+const Sales = (props) => {
     const [sales, setSales] = useState([]);
-    const [messenger, setMessenger] = useState(['Cargando...']);
-    const route='/sales';
+    const [debe, setDebe] = useState([]);
+    const [messenger, setMessenger] = useState('Cargando...');
+    const navigate = useNavigate();
+    const route = 'sales';
 
-    
+    useEffect(() => {
+        get(route)
+            .then(data => {
+                setSales(data);
+                setDebe(data.filter(item => item.saleState === 'Debe'));
+            })
+            .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
+    }, []);
+
 
     const elements = () => {
-        if(sales.length > 0){
+        if (sales.length > 0) {
             return sales.map((item, index) => {
                 return (<Article
                     key={index}
-                    route={route}
+                    route={`/${route}`}
                     {...item}
-                    delete={()=>conformDelete(item.id)}
+                    delete={() => conformDelete(item.id)}
                 />);
             });
-        }else{
+        } else {
             return <p>{messenger}</p>;
         }
-        
+
     }
 
     const conformDelete = (id) => {
-       
+        setMessenger('Cargando...');
+        delet(route, 'venta')
+            .then(() => navigate('/sales'))
+            .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }
 
     return (
         <main>
-              <section className="container" id="container-product">
-                <SectionTitle name={"por cobrar"} route={route}/>
+            <section className="container" id="container-product">
+                <SectionTitle name={"por cobrar"} route={`/${route}`} />
                 <div className="container-bottom">
                     <strong>$689.000</strong>
-                    <p>12 clientes</p>
+                    <p>{ }</p>
                 </div>
             </section>
 
             <section className="container" id="container-product">
-                <SectionTitle name={"ventas realizadas"}/>
+                <SectionTitle name={"ventas realizadas"} />
                 <div className="container-bottom">
                     {elements()}
                 </div>
@@ -52,4 +67,4 @@ const Product = (props) => {
 
 
 
-export default Product;
+export default Sales;
