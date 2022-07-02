@@ -2,21 +2,28 @@ import React from 'react';
 import { useState, useEffect,  useRef  } from 'react';
 import Article from '../../Article.jsx';
 import SectionTitle from '../../SectionTitle.jsx';
-import method from '../../../js/method.js';
+import {get,delet} from '../../../service/methodApi'
+import { useNavigate } from 'react-router';
 
 const Product = (props) => {
     const [products, setProducts] = useState([]);
-    const [messenger, setMessenger] = useState(['Cargando...']);
-    const route='/products';
+    const [messenger, setMessenger] = useState('Cargando...');
+    const navigate = useNavigate();
+    const route='products';
 
-    useEffect(() => method.get('http://localhost:8080/products',setProducts,setMessenger), []);
+    useEffect(() => {
+        get(route)
+        .then(data=>setProducts(data))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
+    }, []);
+
 
     const elements = () => {
         if(products.length > 0){
             return products.map((item, index) => {
                 return (<Article
                     key={index}
-                    route={route}
+                    route={`/${route}`}
                     {...item}
                     delete={()=>conformDelete(item.id)}
                 />);
@@ -29,17 +36,15 @@ const Product = (props) => {
 
     const conformDelete = (id) => {
         setMessenger('Cargando...');
-        const rta = method.delete(` el producto # ${id}`, `http://localhost:8080/products/delete/${id}`,setMessenger)
-        
-        if(rta){
-            props.history.push('/products');
-        }
+        delet(route,'product')
+        .then(()=>navigate('/products'))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }
 
     return (
         <main>
             <section className="container" id="container-product">
-                <SectionTitle name={"Productos"} route={route}/>
+                <SectionTitle name={"Productos"} route={`/${route}`}/>
                 <div className="container-bottom">
                     {elements()}
                 </div>

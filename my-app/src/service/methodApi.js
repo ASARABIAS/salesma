@@ -1,15 +1,15 @@
-const Base = process.env.REACT_BASE;
+const Base = 'http://localhost:8080';
 
 const header = {
     mode: 'cors',
     headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data),
+    }
 }
 
 export const get = async (route) => {
+    console.log("Base: ",Base);
     const response = await fetch(`${Base}/${route}`, header);
     const data = response.json();
     return data;
@@ -37,11 +37,9 @@ export const put = async (route, form) => {
 
 export const delet = async (route, messenger )=> {
     if(window.confirm(`Estas seguro de eliminar ${messenger}?`)){
-        const response = await fetch(`${Base}/${route}`, {
+        await fetch(`${Base}/${route}`, {
             ...header,
             method: 'DELETE'
         });
-        const data = response.json();
-        return data;
     }
 }

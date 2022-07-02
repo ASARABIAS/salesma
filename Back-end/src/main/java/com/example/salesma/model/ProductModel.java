@@ -12,29 +12,9 @@ public class ProductModel {
     private String description;
     private double price;
     private Date dateofcreation;
-    private String description;
     private boolean stock;
-    private Date creationDate;
     private String fhoto;
-
-    public String getFhoto() {
-        return fhoto;
-    }
-    public void setFhoto(String fhoto) {
-        this.fhoto = fhoto;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public Date getCreationDate() {
-        return creationDate;
-    }
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+    
     public long getId() {
         return id;
     }
@@ -47,24 +27,23 @@ public class ProductModel {
     public void setName(String name) {
         this.name = name;
     }
+    public String getDescription() {
+        return description;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
     public double getPrice() {
         return price;
     }
     public void setPrice(double price) {
         this.price = price;
     }
-    
     public Date getDateofcreation() {
         return dateofcreation;
     }
     public void setDateofcreation(Date dateofcreation) {
         this.dateofcreation = dateofcreation;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public void setDescription(String description) {
-        this.description = description;
     }
     public boolean isStock() {
         return stock;
@@ -72,4 +51,12 @@ public class ProductModel {
     public void setStock(boolean stock) {
         this.stock = stock;
     }
+    public String getFhoto() {
+        return fhoto;
+    }
+    public void setFhoto(String fhoto) {
+        this.fhoto = fhoto;
+    }
+
+    
 }

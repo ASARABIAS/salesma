@@ -2,22 +2,25 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import Article from '../Article.jsx';
 import SectionTitle from '../SectionTitle.jsx';
-
-import getProduct from '../../js/method.js';
+import {get} from '../../service/methodApi.js';
 
 const Index = () => {
     const [products, setProducts] = useState([]);
-    const [messenger, setMessenger] = useState(['Cargando...']);
-    const route='/products';
+    const [messenger, setMessenger] = useState('Cargando...');
+    const route='products';
 
-    useEffect(() =>getProduct.get('http://localhost:8080/products/fisrtstock',setProducts,setMessenger), []);
+    useEffect(() =>{
+        get(`${route}/fisrtstock`)
+        .then(data=>setProducts(data))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'));
+    }, []);
 
     const elements = () => {
         if(products.length > 0){
             return products.map((item, index) => {
                 return (<Article
                     key={index}
-                    route={route}
+                    route={'/'+route}
                     {...item}
                 />);
             });

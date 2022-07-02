@@ -1,32 +1,23 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import method from '../../../js/method';
-
+import { useParams, Link, useNavigate } from 'react-router-dom';
+import {get,delet} from '../../../service/methodApi';
 const DetailProduct = (props) => {
     const [product, setProduct] = useState({});
+    const [messenger, setMessenger] = useState('');
+    const navegate = useNavigate();
     const { id } = useParams();
-    const messenger = useRef();
-
 
     useEffect(() => {
-        fetch(`http://localhost:8080/products/${id}`, {
-            'mode': 'cors',
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-            }
-        })
-            .then(res => res.json())
-            .then(data => setProduct(data));
+        get(`products/${id}`)
+        .then(data => setProduct(data))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'));
     }, []);
 
     const conformDelete = () => {
-        messenger.current.innerHTML = 'Cargando...';
-        const rta = method.delete(` el producto # ${id}`, `http://localhost:8080/products/delete/${id}`,messenger)
-        
-        if(rta){
-            props.history.push('/products');
-        }
+        setMessenger('Cargando...');
+        delet(`products/delete/${id}`,'producto')
+        .then(()=>navegate('/products'));
     }
 
     return (
@@ -61,7 +52,7 @@ const DetailProduct = (props) => {
 
                     </div>
                     <div>
-                        <small className='messenger' ref={messenger}></small>
+                        <small className='messenger' >{messenger}</small>
                     </div>
                     <div className="form-buttons">
                         <button onClick={conformDelete}>Eliminar</button>

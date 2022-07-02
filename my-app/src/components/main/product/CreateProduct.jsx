@@ -1,34 +1,22 @@
 import React, {useState} from 'react';
-import { useRef } from 'react';
-import method from '../../../js/method';
+import {post} from '../../../service/methodApi';
 import {useNavigate} from 'react-router-dom';
 
 const CreateProduct = () => {
-    const [senddata, setData] = useState([]);
-    const nameInput = useRef();
-    const priceInput = useRef();
-    const descriptionInput = useRef();
-    const messenger = useRef();
+    const [data, setData] = useState({});
+    const [messenger, setMessenger] = useState('');
     const navigate = useNavigate();
 
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setData({ ...data, [name]: value });
+      };
+
     const sendData= () =>{
-        messenger.current.innerHTML = 'Cargando...';
-
-        const data={
-            id:Date.now(),
-            name:nameInput.current.value,
-            price:priceInput.current.value,
-            stock:true,
-            description:descriptionInput.current.value,
-            dateofcreation:new Date(Date.now()).toISOString()
-        }
-
-        const rta = method.post('http://localhost:8080/products/create',data,messenger);
-
-        if(rta){
-            window.confirm('Desea crear otro producto?')? navigate('/products/create'):navigate('/products');
-            messenger.current.innerHTML = 'Producto Creado';
-        }
+        setMessenger('Cargando...');
+        post('products/create',{...data,id:Date.now(),dateofcreation:new Date(Date.now()).toISOString(),stock:true})
+        .then(()=>window.confirm('Desea crear otro producto?')? navigate('/products/create'):navigate('/products'))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'));
 
     }
 
@@ -50,18 +38,18 @@ const CreateProduct = () => {
                 </div>
                 <div>
                     <label htmlFor="name">Nombre:</label>
-                    <input type="text" name="name" id="name" placeholder="Nombre" ref={nameInput}/>
+                    <input type="text" name="name" id="name" placeholder="Nombre" onChange={handleChange}/>
                 </div>
                 <div>
                     <label htmlFor="description">Descripcion:</label>
-                    <textarea name="description" id="description" rows="5" ref={descriptionInput}></textarea>
+                    <textarea name="description" id="description" rows="5" onChange={handleChange}></textarea>
                 </div>
                 <div>
                     <label htmlFor="price">Precio:</label>
-                    <input type="number" name="price" id="price" placeholder="Precio" ref={priceInput}/>
+                    <input type="number" name="price" id="price" placeholder="Precio" onChange={handleChange}/>
                 </div>
                 <div>
-                    <small className='messenger' ref={messenger}></small>
+                    <small className='messenger'>{messenger}</small>
                 </div>
                 <div className="form-buttons">
                     <button type="reset">Borrar</button>
