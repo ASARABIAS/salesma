@@ -12,10 +12,11 @@ const Sales = (props) => {
     const navigate = useNavigate();
     const route = 'sales';
 
+   
+
     useEffect(() => {
         get(route)
             .then(data => {
-
                 setDebe(data.filter(item => item.saleState == 'Debe'));
                 setSales(data);
             })
@@ -29,7 +30,6 @@ const Sales = (props) => {
                     key={index}
                     route={`/${route}`}
                     {...item}
-                    product={ get(`products/${item.saleDetail.idProduct}`).then((data)=>data)}
                     delete={() => conformDelete(item.id)}
                 />);
             });

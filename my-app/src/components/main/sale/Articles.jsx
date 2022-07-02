@@ -6,8 +6,8 @@ const Article = (props) => {
         <article>
             <div className="articule-left">
                 <div className="articule-left-right">
-                    <h3>{props?.client?.name}</h3>
-                    <p>{props?.product?.name}</p>
+                    <h3>{props?.idClient}</h3>
+                    <p>{props?.saleDetail?.idProduct}</p>
                     <strong>{props?.saleDetail?.total}</strong>
                     <p>{props?.date?props.date.split("T")[0]:'none'}</p>
                 </div>

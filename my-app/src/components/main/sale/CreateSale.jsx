@@ -1,19 +1,46 @@
 import React, {useState} from 'react';
-import { useRef } from 'react';
+import {post} from '../../../service/methodApi';
+import { get} from '../../../service/methodApi';
+import {useEffect} from 'react';
 import {useNavigate} from 'react-router-dom';
 
-const CreateProduct = () => {
-    const [senddata, setData] = useState([]);
-    const nameInput = useRef();
-    const priceInput = useRef();
-    const descriptionInput = useRef();
-    const messenger = useRef();
+const CreateSale = () => {
+    const [data, setData] = useState({});
+    const [datap, setDatap] = useState({});
+    const [products, setProduct] = useState([]);
+    const [price, setPrice] = useState([]);
+    const [messenger, setMessenger] = useState('');
     const navigate = useNavigate();
+    const route = 'products';
+
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setData({ ...data, [name]: value });
+      }
+
+      const handleChangep = (event) => {
+        const { name, value } = event.target;
+        setDatap({ ...datap, [name]: value });
+      }
+
 
     const sendData= () =>{
-       
+        setMessenger('Cargando...');
+        post('sales/create',{...data,id:Date.now(),date:new Date(Date.now()).toISOString(),...datap})
+        .then(()=>window.confirm('Desea crear otro producto?')? navigate('/sales/create'):navigate('/sales'))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'));
 
     }
+
+    useEffect(() => {
+        get(route)
+            .then(data => {
+                setProduct(data);           
+            })
+            .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
+    }, []);
+
 
     return (
         <main>
@@ -22,35 +49,35 @@ const CreateProduct = () => {
         </div>
         <div className="container-bottom">
             <div className="form">
+                                        <label><input type="radio" id="state" name="state" value="1"/> Pagada</label> 
+                                        <label><input type="radio" id="state" name="state" value="0"/>Deuda</label>
+              
+                                        <text><br/><br/></text>
                      <div>
-                        <label for="name">Nombre del cliente:</label>
-                        <input type="text" name="name" id="name" placeholder="Nombre"></input>
+                     <label htmlFor="description">Nombre del cliente:</label>
+                        <input type="text" name="idClient" id="idClient" placeholder="Nombre" onChange={handleChange}/>
                     </div>
                     <div>
-                        <label for="description">Seleccionar producto:</label>
-                        <select name="producto" id="producto" size="1">
-
-                            <option value="1">pantalon</option>
-
-                            <option value="2">blusa</option>
-
-                            <option value="3">panty</option>
+                    <label htmlFor="description">Seleccionar producto:</label>
+                        <select name="saleDetail.idProduct" id="saleDetail.idProduct" size="1" onClick={handleChangep}>
+                       
+                            { products.map((item, index) => (<option key={index} value= {item.name}>{item.name}</option>))}
 
                         </select>
                     </div>
                     <div>
-                        <label for="description">Cantidad:</label>
-                        <input id="cant" type="number" value="1"></input>
+                    <label htmlFor="description">Cantidad:</label>
+                        <input name="saleDetail.quantity" id="saleDetail.quantity" type="number"  onChange={handleChangep}/>
                     </div>
                     <div>
-                        <label for="description">Detalle:</label>
-                        <textarea name="description" id="description" rows="5"></textarea>
+                    <label htmlFor="description">precio del producto:</label>  
+                    <input type="text" name="saleDetai" id="saleDetail.price"/>
                     </div>
                     <div>
-                        <label for="description">precio del producto:</label>
-                        <input type="number" name="price" id="price" placeholder="Precio"></input>
+                    <label htmlFor="description">Total:</label>  
+                    <input type="text" name="saleDetail.total" id="saleDetail.total" onChange={handleChangep}/>
                     </div>
-
+                   
                 <div className="form-buttons">
                     <button type="reset">Borrar</button>
                     <button onClick={sendData}>Crear</button>
@@ -61,4 +88,4 @@ const CreateProduct = () => {
     );
 }
 
-export default CreateProduct;
+export default CreateSale;
