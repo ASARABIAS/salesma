@@ -17,7 +17,7 @@ const Header = () => {
                 <ul>
                     <li><Link to='/products' ><i className="fas fa-tshirt"></i></Link></li>
                     <li><Link to='/'><i className="fas fa-home-alt"></i></Link></li>
-                    <li><Link to='/shopping'><i className="fas fa-shopping-bag"></i></Link></li>
+                    <li><Link to='/sales'><i className="fas fa-shopping-bag"></i></Link></li>
                     <li><Link to='/chart'><i className="fas fa-chart-line"></i></Link></li>
                 </ul>
             </nav>

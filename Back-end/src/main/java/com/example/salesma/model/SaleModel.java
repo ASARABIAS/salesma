@@ -8,15 +8,13 @@ import com.example.salesma.model.auxiliary.SaleState;
 import org.springframework.data.annotation.Id;
 
 public class SaleModel {
-    
+
     @Id
     private long id;
-    private long idClient;
+    private long IdClient;
     private Date date;// cambiar tippo de dato
-    private SaleDetail [] saleDetail;//{Id del producto, cantidad, precio <- por cada producto}
-    private double total;
-    private SaleState saleState; //debe, pago
-
+    private SaleDetail saleDetail;
+    private SaleState saleState; // debe, pago
     public long getId() {
         return id;
     }
@@ -24,10 +22,10 @@ public class SaleModel {
         this.id = id;
     }
     public long getIdClient() {
-        return idClient;
+        return IdClient;
     }
     public void setIdClient(long idClient) {
-        this.idClient = idClient;
+        IdClient = idClient;
     }
     public Date getDate() {
         return date;
@@ -35,17 +33,11 @@ public class SaleModel {
     public void setDate(Date date) {
         this.date = date;
     }
-    public SaleDetail[] getSaleDetail() {
+    public SaleDetail getSaleDetail() {
         return saleDetail;
     }
-    public void setSaleDetail(SaleDetail[] saleDetail) {
+    public void setSaleDetail(SaleDetail saleDetail) {
         this.saleDetail = saleDetail;
-    }
-    public double getTotal() {
-        return total;
-    }
-    public void setTotal(double total) {
-        this.total = total;
     }
     public SaleState getSaleState() {
         return saleState;
@@ -53,7 +45,8 @@ public class SaleModel {
     public void setSaleState(SaleState saleState) {
         this.saleState = saleState;
     }
-
     
+
+
     
 }

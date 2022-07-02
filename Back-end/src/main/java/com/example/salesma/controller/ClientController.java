@@ -51,6 +51,10 @@ public class ClientController {
     public ArrayList<ClientModel> searchClientName(@PathVariable("name") String name) {
         return service.searchClientName(name);
     }
- 
+    
+    @GetMapping(path = "/{id}" )
+    public Optional<ClientModel> searchClientId(@PathVariable("id") Long id) {
+        return service.searchClientId(id);
+    }
     
 }

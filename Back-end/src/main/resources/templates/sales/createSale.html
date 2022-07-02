@@ -2,17 +2,59 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../../css/product.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://kit.fontawesome.com/c192b78caa.js" crossorigin="anonymous"></script>
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <link rel="stylesheet" href="../../css/product.css">
-        <link rel="stylesheet" href="../../css/style.css">
-        <script src="https://kit.fontawesome.com/c192b78caa.js" crossorigin="anonymous"></script>
-    </head>
+    <script type="text/javascript">
 
+        function Enjson() {
+
+            let op = document.querySelectorAll('input[name="cbox1"]');
+            let select;
+
+            for (const i of op) if (i.checked) select = i.value;
+
+            let Id =Date.now();
+            let Id_cliente = document.getElementById("name").value;
+            let fecha = document.getElementById("fecha").value;
+            var combo = document.getElementById("producto");
+            let id_producto = combo.options[combo.selectedIndex].value;
+            let cant = document.getElementById("cant").value;
+            let precio = document.getElementById("price").value;
+            let totalp=cant*precio;
+            let sale = {
+                id: Id,
+                id_cliente: Id_cliente,
+                fecha: fecha,
+                detalle: {
+                    id_producto: id_producto,
+                    cant: cant,
+                    precio: precio,
+                },
+                total: totalp,
+                stado: select
+                
+            }
+            json = JSON.stringify(sale);
+            let endpoint="http://localhost:8080/sales/create"
+            fetch(endpoint,{
+                method: 'POST',
+                mode:"cors",
+                headers: {"content-Type":"application/json"},
+                body: json
+
+            })
+            
+        }
+    </script>
+</head>
+
+<body>
     <header>
         <div class="header-top">
             <div class="header-letf">
@@ -25,9 +67,11 @@
         <div class="header-bottom">
             <nav class="menu">
                 <ul>
-                    <li><a href="/src/main/resources/templates/products/listProducts.html"><i class="fas fa-tshirt"></i></a></li>
+                    <li><a href="/src/main/resources/templates/products/listProducts.html"><i
+                                class="fas fa-tshirt"></i></a></li>
                     <li><a href="/src/main/resources/templates/index.html"><i class="fas fa-home-alt"></i></a></li>
-                    <li><a href="/src/main/resources/templates/sales/listSales.html"><i class="fas fa-shopping-bag"></i></a></li>
+                    <li><a href="/src/main/resources/templates/sales/listSales.html"><i
+                                class="fas fa-shopping-bag"></i></a></li>
                     <li><a href=""><i class="fas fa-chart-line"></i></a></li>
                 </ul>
             </nav>
@@ -38,7 +82,6 @@
         <div class="container-top">
             <h2>Crear Venta</h2>
         </div>
-        
         <section class="container" id="container-product">
             <div class="container-bottom">
                 <article>
@@ -47,71 +90,73 @@
                             <article>
                                 <div class="articule-left">
                                     <div class="articule-left">
-                                        <strong>Hoy, 26 Mayo</strong>
+                                        <input  id="fecha" type="date" />
                                     </div>
                                 </div>
                             </article>
-                        </div>  
+                        </div>
                         <div class="container-bottom">
                             <article>
                                 <div class="articule-righ">
                                     <div class="articule-right">
-                                        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Pagada</label><br>
-                                        <label><input type="checkbox" id="cbox1" value="first_checkbox"> Deuda</label><br>
+                                        <label><input type="radio" id="cbox1" name="cbox1" value="Pago">
+                                            Pagada</label><br>
+                                        <label><input type="radio" id="cbox1" name="cbox1" value="Debe">
+                                            Deuda</label><br>
                                     </div>
                                 </div>
                             </article>
-                        </div>     
+                        </div>
                     </div>
-     
+
                 </article>
-            </div> 
-        </div>
+            </div>
+            </div>
 
-        <div class="container-bottom">
-            
-            <form>
+            <div class="container-bottom">
 
-                <div>
-                    <label for="name">Nombre del cliente:</label>
-                    <input type="text" name="name" id="name" placeholder="Nombre">
-                </div>
-                <div>
-                    <label for="description">Seleccionar producto:</label>
-                    <select name="productos" size="1">
+                <form>
 
-                        <option>pantalon</option>
-                        
-                        <option>blusa</option>
-                        
-                        <option>panty</option>
-                        
+                    <div>
+                        <label for="name">Nombre del cliente:</label>
+                        <input type="text" name="name" id="name" placeholder="Nombre">
+                    </div>
+                    <div>
+                        <label for="description">Seleccionar producto:</label>
+                        <select name="producto" id="producto" size="1">
+
+                            <option value="1">pantalon</option>
+
+                            <option value="2">blusa</option>
+
+                            <option value="3">panty</option>
+
                         </select>
-                </div>
-                <div>
-                    <label for="description">Detalle:</label>
-                    <textarea name="description" id="description" rows="5"></textarea>
-                </div>
-                <div>
-                    <label for="description">precio del producto:</label>
-                     <input type="number" name="price" id="price" placeholder="Precio">
-                </div>
-              
-                <div class="form-buttons">
-                    <button type="reset">Borrar</button>
-                    <button>Crear</button>
-                </div>
-            </form>
-        </div>
+                    </div>
+                    <div>
+                        <label for="description">Cantidad:</label>
+                        <input id="cant" type="number" value="1">
+                    </div>
+                    <div>
+                        <label for="description">Detalle:</label>
+                        <textarea name="description" id="description" rows="5"></textarea>
+                    </div>
+                    <div>
+                        <label for="description">precio del producto:</label>
+                        <input type="number" name="price" id="price" placeholder="Precio">
+                    </div>
+
+                    <div class="form-buttons">
+                        <input type="reset" value="Borrar">
+                        <input type="button" onclick="Enjson()" value="Crear">
+                    </div>
+                </form>
+            </div>
     </main>
 
     <footer>
 
     </footer>
-</head>
-
-<body>
-
 </body>
 
 </html>

@@ -36,6 +36,11 @@ public class ClientService {
         return clienterepo.findByName(name);
     }
 
+     // Buscar x ID
+     public Optional<ClientModel> searchClientId(long id) {
+        return clienterepo.findById(id);
+    }
+
     public long[] nameClientToIds(String name) {
 
         ArrayList<ClientModel> clientsModel = clienterepo.findByName(name);
