@@ -10,49 +10,40 @@ public class ClientModel {
     private long id;
     private String name;
     private String lastname;
-    private String direction;
+    private String address;
     private long phone;
-
     public long getId() {
-        return this.id;
+        return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
-
     public String getName() {
-        return this.name;
+        return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
-
     public String getLastname() {
-        return this.lastname;
+        return lastname;
     }
-
     public void setLastname(String lastname) {
         this.lastname = lastname;
     }
-
-    public String getDirection() {
-        return this.direction;
+    public String getAddress() {
+        return address;
     }
-
-    public void setDirection(String direction) {
-        this.direction = direction;
+    public void setAddress(String address) {
+        this.address = address;
     }
-
     public long getPhone() {
-        return this.phone;
+        return phone;
     }
-
     public void setPhone(long phone) {
         this.phone = phone;
     }
 
+   
 
     
 

@@ -3,6 +3,7 @@ package com.example.salesma.service;
 import java.util.ArrayList;
 import java.util.Optional;
 
+import com.example.salesma.model.ClientModel;
 import com.example.salesma.model.SaleModel;
 import com.example.salesma.model.auxiliary.SaleState;
 import com.example.salesma.repository.SaleRepository;
