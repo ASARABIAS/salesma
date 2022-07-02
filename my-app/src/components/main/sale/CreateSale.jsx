@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import { useRef } from 'react';
-import method from '../../../js/method';
 import {useNavigate} from 'react-router-dom';
 
 const CreateProduct = () => {
@@ -12,23 +11,7 @@ const CreateProduct = () => {
     const navigate = useNavigate();
 
     const sendData= () =>{
-        messenger.current.innerHTML = 'Cargando...';
-
-        const data={
-            id:Date.now(),
-            name:nameInput.current.value,
-            price:priceInput.current.value,
-            stock:true,
-            description:descriptionInput.current.value,
-            dateofcreation:new Date(Date.now()).toISOString()
-        }
-
-        const rta = method.post('http://localhost:8080/sales/create',data,messenger);
-
-        if(rta){
-            window.confirm('Desea crear otra venta?')? navigate('/products/create'):navigate('/sales');
-            messenger.current.innerHTML = 'venta Creada';
-        }
+       
 
     }
 

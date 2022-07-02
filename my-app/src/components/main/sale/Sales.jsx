@@ -2,14 +2,13 @@ import React from 'react';
 import { useState, useEffect,  useRef  } from 'react';
 import Article from '../sale/Articles.jsx';
 import SectionTitle from '../../SectionTitle.jsx';
-import method from '../../../js/method.js';
 
 const Product = (props) => {
     const [sales, setSales] = useState([]);
     const [messenger, setMessenger] = useState(['Cargando...']);
     const route='/sales';
 
-    useEffect(() => method.get('http://localhost:8080/sales',setSales,setMessenger), []);
+    
 
     const elements = () => {
         if(sales.length > 0){
@@ -28,12 +27,7 @@ const Product = (props) => {
     }
 
     const conformDelete = (id) => {
-        setMessenger('Cargando...');
-        const rta = method.delete(` La venta # ${id}`, `http://localhost:8080/sales/delete/${id}`,setMessenger)
-        
-        if(rta){
-            props.history.push('/sales');
-        }
+       
     }
 
     return (

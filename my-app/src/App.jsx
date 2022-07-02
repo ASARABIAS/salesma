@@ -6,6 +6,8 @@ import Product from './components/main/product/Product.jsx';
 import CreateProduct from './components/main/product/CreateProduct.jsx';
 import DetailProduct from './components/main/product/DetailProduct.jsx';
 import UpdateProduct from './components/main/product/UpdateProduct.jsx';
+import Sales from './components/main/sale/Sales.jsx';
+import CreateSale from './components/main/sale/CreateSale.jsx';
 
 function App() {
   return (
