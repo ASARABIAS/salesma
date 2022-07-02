@@ -15,12 +15,12 @@ const Sales = (props) => {
     useEffect(() => {
         get(route)
             .then(data => {
+
+                setDebe(data.filter(item => item.saleState == 'Debe'));
                 setSales(data);
-                setDebe(data.filter(item => item.saleState === 'Debe'));
             })
             .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }, []);
-
 
     const elements = () => {
         if (sales.length > 0) {
@@ -29,6 +29,7 @@ const Sales = (props) => {
                     key={index}
                     route={`/${route}`}
                     {...item}
+                    product={ get(`products/${item.saleDetail.idProduct}`).then((data)=>data)}
                     delete={() => conformDelete(item.id)}
                 />);
             });
@@ -44,14 +45,19 @@ const Sales = (props) => {
             .then(() => navigate('/sales'))
             .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }
+    const contidad = () => {
+        let sum = 0;
+        debe.forEach(item => sum = sum + item.saleDetail.total);
+        return sum;
+    }
 
     return (
         <main>
             <section className="container" id="container-product">
                 <SectionTitle name={"por cobrar"} route={`/${route}`} />
                 <div className="container-bottom">
-                    <strong>$689.000</strong>
-                    <p>{ }</p>
+                    <strong>{`$${contidad()}`}</strong>
+                    <p>{`${debe.length} clientes`} </p>
                 </div>
             </section>
 

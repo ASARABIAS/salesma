@@ -14,10 +14,7 @@ public class ProductModel {
     private Date dateofcreation;
     private boolean stock;
     private String fhoto;
-<<<<<<< HEAD
     
-=======
->>>>>>> main_maryy
     public long getId() {
         return id;
     }
