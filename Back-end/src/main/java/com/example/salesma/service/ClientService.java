@@ -24,8 +24,10 @@ public class ClientService {
         return (ArrayList<ClientModel>) clienterepo.findAll();
     }
 
-    public Optional<ClientModel> editClientId(Long id) {
-        return clienterepo.findById(id);
+    // Crear y editar
+
+    public ClientModel create_editClient(ClientModel clientModel) {
+        return clienterepo.save(clientModel);
     }
 
     public void deleteClientId(Long id) {
@@ -36,24 +38,23 @@ public class ClientService {
         return clienterepo.findByName(name);
     }
 
-     // Buscar x ID
-     public Optional<ClientModel> searchClientId(long id) {
+    // Buscar x ID
+    public Optional<ClientModel> searchClientId(long id) {
         return clienterepo.findById(id);
     }
 
     public long[] nameClientToIds(String name) {
 
         ArrayList<ClientModel> clientsModel = clienterepo.findByName(name);
-        int sizeClientsModel=clientsModel.size();
+        int sizeClientsModel = clientsModel.size();
         ClientModel auxClientModel;
         long[] aux = new long[sizeClientsModel];
 
-        for(int i=0;i<sizeClientsModel;i++){
+        for (int i = 0; i < sizeClientsModel; i++) {
             auxClientModel = clientsModel.get(i);
-            aux[i]=auxClientModel.getId();
+            aux[i] = auxClientModel.getId();
         }
         return aux;
     }
-
 
 }

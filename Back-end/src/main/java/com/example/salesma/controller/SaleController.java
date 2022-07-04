@@ -38,6 +38,12 @@ public class SaleController {
         return saleService.searchSaleId(id);
     }
 
+    //buscar x 5 mas viejos
+    @GetMapping(path = "/fisrtstock")
+    public ArrayList<SaleModel> listSalesOld(){
+        return saleService.listSalesOld();
+    }
+
     // crear producto
     @GetMapping(path = "/create")
     public void createSale() {

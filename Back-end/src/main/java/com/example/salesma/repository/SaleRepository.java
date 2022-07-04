@@ -13,4 +13,6 @@ public interface SaleRepository extends MongoRepository<SaleModel, Long> {
     ArrayList<SaleModel> findByIdClient(long id);
 
     ArrayList<SaleModel> findBySaleState(SaleState saleState);
+
+    ArrayList<SaleModel> findTop5BySaleStateOrderByDateAsc(SaleState saleState);
 }

@@ -6,10 +6,9 @@ const Article = (props) => {
         <article>
             <div className="articule-left">
                 <div className="articule-left-right">
-                    <h3>{props?.nombreCliente}</h3>
-                    <p>{props?.saleDetail?.nombre}</p>
-                    <strong>{props?.saleDetail?.total}</strong>
-                    <p>{props?.date?props.date.split("T")[0]:'none'}</p>
+                    <h3>{`${props.name} ${props.lastname}`}</h3>
+                    <strong>{props.phone}</strong>
+                    <p>{props.address}</p>
                 </div>
             </div>
             <div className="articule-right">

@@ -2,8 +2,11 @@ package com.example.salesma.model.auxiliary;
 
 public class SaleDetail {
     private long idProduct;
+    private String nombre;
     private int quantity;
     private double total;
+
+    
     public long getIdProduct() {
         return idProduct;
     }
@@ -21,6 +24,12 @@ public class SaleDetail {
     }
     public void setTotal(double total) {
         this.total = total;
+    }
+    public String getNombre() {
+        return nombre;
+    }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     

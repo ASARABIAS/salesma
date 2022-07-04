@@ -18,7 +18,7 @@ const Header = () => {
                     <li><Link to='/products' ><i className="fas fa-tshirt"></i></Link></li>
                     <li><Link to='/'><i className="fas fa-home-alt"></i></Link></li>
                     <li><Link to='/sales'><i className="fas fa-shopping-bag"></i></Link></li>
-                    <li><Link to='/chart'><i className="fas fa-chart-line"></i></Link></li>
+                    <li><Link to='/clients'><i className="fa-solid fa-person"></i></Link></li>
                 </ul>
             </nav>
         </div>

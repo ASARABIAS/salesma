@@ -12,16 +12,27 @@ const Sales = (props) => {
     const navigate = useNavigate();
     const route = 'sales';
 
-   
+
 
     useEffect(() => {
+        getData();
+    }, []);
+
+    const getData = () => {
         get(route)
             .then(data => {
-                setDebe(data.filter(item => item.saleState == 'Debe'));
-                setSales(data);
+
+                if (data.length > 0) {
+                    setDebe(data.filter(item => item.saleState == 'Debe'));
+                    setSales(data);
+                } else {
+                    setDebe([]);
+                    setSales([]);
+                    setMessenger('No hay 😑😑');
+                }
             })
             .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
-    }, []);
+    }
 
     const elements = () => {
         if (sales.length > 0) {
@@ -41,8 +52,8 @@ const Sales = (props) => {
 
     const conformDelete = (id) => {
         setMessenger('Cargando...');
-        delet(route, 'venta')
-            .then(() => navigate('/sales'))
+        delet(`${route}/delete/${id}`, 'venta')
+            .then(() => getData())
             .catch(() => setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }
     const contidad = () => {
@@ -54,7 +65,7 @@ const Sales = (props) => {
     return (
         <main>
             <section className="container" id="container-product">
-                <SectionTitle name={"por cobrar"} route={`/${route}`} />
+                <SectionTitle name="Ventas" route={`/${route}`} />
                 <div className="container-bottom">
                     <strong>{`$${contidad()}`}</strong>
                     <p>{`${debe.length} clientes`} </p>

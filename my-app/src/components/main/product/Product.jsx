@@ -12,11 +12,14 @@ const Product = (props) => {
     const route='products';
 
     useEffect(() => {
-        get(route)
-        .then(data=>setProducts(data))
-        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
+        getData();
     }, []);
 
+    const getData = () =>{
+        get(route)
+        .then(data=>data.length>0?setProducts(data):setMessenger('No hay productos 😑😑😑'))
+        .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
+    }
 
     const elements = () => {
         if(products.length > 0){
@@ -36,8 +39,8 @@ const Product = (props) => {
 
     const conformDelete = (id) => {
         setMessenger('Cargando...');
-        delet(route,'product')
-        .then(()=>navigate('/products'))
+        delet(`${route}/delete/${id}`,'producto')
+        .then(()=>getData())
         .catch(()=>setMessenger('Error al cargar. Buscar al Programador 👀👀👀'))
     }
 

@@ -11,7 +11,8 @@ public class SaleModel {
 
     @Id
     private long id;
-    private long IdClient;
+    private long idClient;
+    private String nombreCliente;
     private Date date;// cambiar tippo de dato
     private SaleDetail saleDetail;
     private SaleState saleState; // debe, pago
@@ -22,10 +23,16 @@ public class SaleModel {
         this.id = id;
     }
     public long getIdClient() {
-        return IdClient;
+        return idClient;
     }
     public void setIdClient(long idClient) {
-        IdClient = idClient;
+        this.idClient = idClient;
+    }
+    public String getNombreCliente() {
+        return nombreCliente;
+    }
+    public void setNombreCliente(String nombreCliente) {
+        this.nombreCliente = nombreCliente;
     }
     public Date getDate() {
         return date;
@@ -46,7 +53,5 @@ public class SaleModel {
         this.saleState = saleState;
     }
     
-
-
     
 }

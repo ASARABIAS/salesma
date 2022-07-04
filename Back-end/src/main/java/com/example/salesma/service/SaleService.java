@@ -34,6 +34,11 @@ public class SaleService {
         saleRepository.deleteById(id);
     }
 
+    // listar 5 mas antiguos
+    public ArrayList<SaleModel> listSalesOld() {
+        return (ArrayList<SaleModel>) saleRepository.findTop5BySaleStateOrderByDateAsc(SaleState.Debe );
+    }
+
     public ArrayList<SaleModel> searchSaleParams(String params) {
 
         try{

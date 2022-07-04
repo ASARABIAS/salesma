@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "*",methods = {RequestMethod.POST,RequestMethod.GET,RequestMethod.DELETE,RequestMethod.PUT})
-@RequestMapping("/client")
+@RequestMapping("/clients")
 public class ClientController {
 
     @Autowired
@@ -38,8 +38,8 @@ public class ClientController {
     
     
     @PutMapping(path = "/edit/{id}")
-    public Optional<ClientModel> editClientId(@PathVariable("id") Long id){
-        return  service.editClientId(id);
+    public ClientModel editClientId(@PathVariable("id") Long id,@RequestBody ClientModel cliente){
+        return  service.create_editClient(cliente);
     }
 
     @DeleteMapping(path = "/delete/{id}" )
